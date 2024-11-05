@@ -13,7 +13,7 @@ COPY src/server/prisma ./src/server/prisma
 
 # Install dependencies, including dev (release builds should use npm ci)
 ENV NODE_ENV development
-RUN npm ci
+RUN npm ci --verbose
 
 
 # Builder
@@ -30,7 +30,7 @@ COPY . .
 
 # Build the application
 ENV NODE_ENV production
-RUN npm run build
+RUN npm run build --verbose
 
 # Reduce installed packages to production-only
 RUN npm prune --production
